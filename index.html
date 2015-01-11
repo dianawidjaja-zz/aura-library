@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<title>Aura Component Library</title>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-inverse" id="content">
+      <div class="container">
+      <a href="./index.html" class="navbar-brand"><img src="img/logo.png" alt="Aura logo"/></a>
+        <h1>Build Scalable Web Apps</h1>
+        <p>Aura is a component-based UI framework that provides intelligent client and server interaction.</p>
+        <p>
+          <a class="btn btn-success btn-lg" href="https://github.com/forcedotcom/aura" target="_blank">
+            View on Github
+          </a>
+          <a class="btn btn-primary btn-lg" href="http://demo.auraframework.org/auradocs/reference.app" target="_blank">
+            Component Reference</small>
+          </a>
+          
+      </p></div>
+    </div>
+    
+    <div class="container">
+        	<div class="col-md-9">
+            	<h2>Introduction</h2>
+                <p>Components are the building blocks of Aura. 
+        		With varying granularity, they encapsulate a modular reusable section of UI, providing comprehensive support for user interface events through component 		 				attributes and client-side controllers. Use these components out-of-the-box or extend and customize them based on your needs.</p>
+                <div class="alert alert-info">For a full list of component attributes and events, see the <a href="http://demo.auraframework.org/auradocs/reference.app" target="_blank">Reference site</a>.</div>
+                <section>
+                	<!----- Alerts ----->
+                    <article>
+                    <h2><a name="alerts">Alerts</a></h2>
+                    <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:message&amp;defType&#61;component" target="_blank">ui:message</a></code></p>
+            <p class="component-description">Display a message of varying severity level using the <code>severity</code> attribute. Set the <code>closable</code> attribute to <code>true</code> if displaying a closable button.</p>
+            <p class="component-description"><img src="img/message.png" alt="ui:message default"/></p>
+            
+                    <pre class="prettyprint">&lt;ui:message title="Confirmation" severity="confirm">
+    This is a confirmation message.
+&lt;/ui:message></pre>
+            <p class="component-description"><img src="img/message_information.png" alt="ui:message informational"/></p>
+            <pre class="prettyprint">&lt;ui:message title="Information" severity="info" closable="true">
+    This is a message.
+&lt;/ui:message></pre>
+            <p class="component-description"><img src="img/message_warning.png" alt="ui:message warning"/></p>
+            <pre class="prettyprint"> &lt;ui:message title="Warning" severity="warning">
+    This is a warning.
+&lt;/ui:message></pre>
+            <p class="component-description"><img src="img/message_error.png" alt="ui:message error"/></p>
+            <pre class="prettyprint">&lt;ui:message title="Error" severity="error">
+    This is an error message.
+&lt;/ui:message></pre>
+           		 </article>
+                 	
+                 <!----- Buttons ----->
+                    <article>
+                    	<h2><a name="buttons">Buttons</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:button&amp;defType&#61;component" target="_blank">ui:button</a></code>
+        		<p class="component-description">Buttons can contain text only, image only, or both text and image. Setting <code>labelClass="assistiveText"</code> hides the label but maintains its accessibility.</p>
+                 <p class="component-description"><img src="img/button_default.png" alt="ui:button default"/></p>
+                <pre class="prettyprint">&lt;ui:button label="Submit"/></pre>
+                 <p class="component-description"><img src="img/button_both.png" alt="ui:button default"/></p>
+			    <pre class="prettyprint">&lt;ui:button label="Search" class="img"/></pre>
+ 	<pre class="prettyprint">
+.THIS.uiButton.img {
+    background:url(/img/icon/lightning16.png) no-repeat;
+}</pre>
+                    </article>
+        	</section>
+        	</div>
+            <div class="col-md-3">
+            	<ul class="list-unstyled nav nav-sidebar">
+  				<li>Components
+	  				<ul class="list-unstyled nav nav-sidebar">
+		  				<li><a href="#alerts" alt="alerts">Alerts</a></li>
+		  				<li><a href="#buttons" alt="buttons">Buttons</a></li>
+		  				<!-- TODO: make Fields toggle to show/hide child list -->
+		  					<li><a href="#fields">Fields</a>
+		  						<ul class="list-unstyled nav nav-sidebar">
+		  							<li><a href="#auto" alt="auto">Autocomplete</a></li>
+		  							<li><a href="#checkbox" alt="checkbox">Checkboxes</a></li>
+		  							<li><a href="#datetime" alt="datetime">Date and Time</a></li>
+		  							<li><a href="#datepicker" alt="date picker">Date Picker</a></li>
+		  							<li><a href="#email" alt="email">Email</a></li>
+		  							<li><a href="#number" alt="number">Number</a></li>
+		  							<li><a href="#secret" alt="secret">Password</a></li>
+		  							<li><a href="#percent" alt="percent">Percent</a></li>
+		  							<li><a href="#phone" alt="phone">Phone</a></li>
+		  							<li><a href="#range" alt="range">Range</a></li>
+			  						<li><a href="#search" alt="search">Search</a></li>
+		  							<li><a href="#text" alt="text">Text and Rich Text</a></li>
+		  							<li><a href="#textarea" alt="text">Text Area</a></li>
+		  							<li><a href="#url" alt="url">URL</a></li>
+		  						</ul>
+		  						</li>
+		  					<li><a href="#errors" alt="errors">Field-Level Errors</a></li>
+		  					<li><a href="#forms" alt="forms">Forms</a></li>
+		  					<li><a href="#carousels" alt="carousels">Carousels</a></li>
+		  					<li><a href="#data" alt="data">Data Providers</a></li>
+			  				<li><a href="#dialogs" alt="dialogs">Dialogs</a></li>
+			  				<li><a href="#dropdown" alt="dropdown">Dropdowns</a></li>
+			  				<li><a href="#images" alt="images">Images</a></li>
+			  				<li><a href="#layouts">Layouts</a>
+		  						<ul class="list-unstyled nav nav-sidebar">
+		  							<li><a href="#block" alt="block">Horizontal</a></li>
+		  							<li><a href="#vbox" alt="vbox">Vertical</a></li>
+		  						</ul>
+		  						</li>
+			  				<li><a href="#lists" alt="lists">Lists</a></li>
+			  				<li><a href="#menus" alt="menus">Menus</a></li>
+			  				<li><a href="#scrollers" alt="scrollers">Scrollers</a></li>
+			  				<li><a href="#spinners" alt="spinners">Spinners</a></li>
+			  				<li><a href="#tables" alt="tables">Tables</a></li>
+			  				<li><a href="#tabset" alt="tabset">Tabset</a></li>
+			  		</ul>
+			  	</li>
+               </ul>
+            </div>
+          
+       		
+        </div>
+	</div>
+    
+</body>
+</html>

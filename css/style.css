@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+section > article {
+	background-color: white;
+}
+
+section > article > h2 {
+	font-size: 24px;
+	color: #2a4158;
+	padding: 2px 18px;
+	background-color: white;
+	display: inline-block;
+	width: 100%;
+	border-bottom: #f0f1f2 1px solid;
+	margin: 10px 0 10px 0;
+}
+
+h2 > a, h2 > a:hover {
+	text-decoration: none;	
+	color: #2a4158;
+}
+
+section > article > p {
+	width: 100%;
+	margin: 0 0 0 !important;
+}
+
+p.component-description {
+	font-size: 14px;
+	line-height: 20px;
+	color: #66788a;
+	padding: 14px 18px;
+	background: white;
+}
+	
+code.ref {
+	font-size: 14px;
+	line-height: 20px;
+	color: #66788a;
+	padding-left: 14px;
+	padding-bottom: 12px;
+	margin-top: 10px;
+	padding-top: 10px;
+	width: 100%;
+}
+
+pre.prettyprint {
+	border: none !important;
+	padding: 10px 0 10px 14px !important;
+	background-color: #fafafa;
+}
+
+.nav>li>ul {
+	margin-left: 20px;
+}
+
+.nav>li>a {
+	padding: 5px;
+	color: #428bca;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+	border-left: 2px solid #dc595c;
+	background-color: none !important;
+}
+
+.nav-sidebar > li > a {
+  padding-left: 20px;
+}
