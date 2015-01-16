@@ -77,39 +77,451 @@
     background:url(/img/icon/lightning16.png) no-repeat;
 }</pre>
                     </article>
+                    
+                    <h2><a name="input">Input</a></h2>
+                    <p>HTML5 input types provide support for user interaction on different data types. For example, a field for numerical input displays a numerical keyboard on mobile devices. Each input field has an output equivalent for easy data manipulation and display. That means you can easily wire up the text value of a <code>ui:inputText</code> component in a <code>ui:outputText</code> component. </p>
+                    
+                    <!----- Autocomplete ----->
+                    <article>
+                    	<h2><a name="auto">Autocomplete</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:autocomplete&amp;defType&#61;component" target="_blank">ui:autocomplete</a></code>
+        		<p class="component-description">Autocomplete fields display suggestions as you type in a text or text area field. You can customize
+                the handling of certain behaviors in a client-side controller, such as when a match is found, or when a result is selected.</p>
+                 <p class="component-description"><img src="img/autocomplete.png" alt="ui:autocomplete default"/></p>
+                <pre class="prettyprint">&lt;ui:autocomplete optionVar="row" 
+        matchDone="{!c.handleInputChangeAutoCompleteMatchDone}"
+        inputChange="{!c.handleInputChangeAutoComplete}" 
+        selectListOption="{!c.handleSelectOptionAutoComplete}"&gt;
+    &lt;aura:set attribute="dataProvider"&gt;
+        &lt;auradocs:demoAutocompleteProvider/&gt;
+    &lt;/aura:set&gt;
+    &lt;aura:set attribute="listOption"&gt;
+        &lt;ui:autocompleteOption label="{!row.label}" 
+        keyword="{!row.keyword}" 
+        value="{!row.value}" visible="{!row.visible}"/&gt;
+    &lt;/aura:set&gt;
+&lt;/ui:autocomplete&gt;</pre>
+                    </article>
+                    
+                    <!----- Checkboxes ----->
+                    <article>
+                    	<h2><a name="checkbox">Checkboxes</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputCheckbox&amp;defType&#61;component" target="_blank">ui:inputCheckbox</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputCheckbox&amp;defType&#61;component" target="_blank">ui:outputCheckbox</a></code></p>
+        		<p class="component-description">Checkboxes are clickable and actionable, presented in a group for multiple selection.
+        		Just like the other input components, you can customize the checkbox behavior by handling the <code>change</code> event when its value changes. </p>
+                <p class="component-description"><img src="img/checkbox.png" alt="ui:inputCheckbox default"/></p>
+                <pre class="prettyprint">&lt;ui:inputCheckbox value="true" label="select" change="{!c.doSomething}"/></pre>
+                 </article>
+                 
+                 <!----- Date & Time ----->
+                    <article>
+                    	<h2><a name="datetime">Date & Time</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputDate&amp;defType&#61;component" target="_blank">ui:inputDate</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputDateTime&amp;defType&#61;component" target="_blank">ui:inputDateTime</a></code>
+                        <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputDate&amp;defType&#61;component" target="_blank">ui:outputDate</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputDateTime&amp;defType&#61;component" target="_blank">ui:outputDateTime</a></code></p>
+        		<p class="component-description">Date and time fields provide a date picker option for easy user input. Setting <code>displayDatePicker="true"</code> displays a date picker in the date field.</p>
+                <p class="component-description"><img src="img/datetime.png" alt="ui:inputDate default"/></p>
+                <pre class="prettyprint">&lt;ui:inputDate label="Birthday" 
+          labelPosition="hidden"
+          value="2000-06-01" 
+          displayDatePicker="true"/&gt;</pre>
+          <p class="component-description"><img src="img/datetime2.png" alt="ui:inputDateTime default"/></p>
+                <pre class="prettyprint">&lt;ui:inputDateTime label="Appointment" 
+              labelPosition="hidden"
+              value="2000-06-01" 
+              displayDatePicker="true"/&gt;</pre>
+                 </article>
+                 
+                 <!----- Email ----->
+                    <article>
+                    	<h2><a name="email">Email</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputEmail&amp;defType&#61;component" target="_blank">ui:inputEmail</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputEmail&amp;defType&#61;component" target="_blank">ui:outputEmail</a></code></p>
+        		<p class="component-description">The email field enables email address input.</p>
+                <p class="component-description"><img src="img/email.png" alt="ui:inputEmail default"/></p>
+                <pre class="prettyprint">&lt;ui:inputEmail label="Email" 
+         labelPosition="hidden"
+         placeholder="youremail@yourco.com"/&gt;</pre>
+                 </article>
+                 
+                 <!----- Number ----->
+                    <article>
+                    	<h2><a name="number">Number</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputNumber&amp;defType&#61;component" target="_blank">ui:inputNumber</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputNumber&amp;defType&#61;component" target="_blank">ui:outputNumber</a></code></p>
+        		<p class="component-description">The number field enables numerical input with formatting support.</p>
+                <p class="component-description"><img src="img/number.png" alt="ui:inputNumber default"/></p>
+                <pre class="prettyprint">&lt;ui:inputNumber label="Number" 
+      labelPosition="hidden"
+      value="10000.00" format="#,##0,000.00#"/&gt;</pre>
+                 </article>
+                    
+                 <!----- Secret ----->
+                    <article>
+                    	<h2><a name="secret">Password</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputSecret&amp;defType&#61;component" target="_blank">ui:inputSecret</a></code></p>
+        		<p class="component-description">The password field enables secret text input.</p>
+                <p class="component-description"><img src="img/secret.png" alt="ui:inputSecret default"/></p>
+                <pre class="prettyprint">&lt;ui:inputSecret label="Password" 
+      labelPosition="hidden" 
+      value="mysecret"/&gt;</pre>
+                 </article>  
+                 
+                  <!----- Percent ----->
+                    <article>
+                    	<h2><a name="percent">Percent</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputPercent&amp;defType&#61;component" target="_blank">ui:inputPercent</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputPercent&amp;defType&#61;component" target="_blank">ui:outputPercent</a></code></p>
+        		<p class="component-description">The percent field enables percentage input.</p>
+                <p class="component-description"><img src="img/percent.png" alt="ui:inputPercent default"/></p>
+                <pre class="prettyprint">&lt;ui:inputPercent label="Percent" 
+      labelPosition="hidden"
+      value=".9"/&gt;</pre>
+                 </article>
+                 
+                 <!----- Phone ----->
+                    <article>
+                    	<h2><a name="phone">Phone</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputPhone&amp;defType&#61;component" target="_blank">ui:inputPhone</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputPhone&amp;defType&#61;component" target="_blank">ui:outputPhone</a></code></p>
+        		<p class="component-description">The phone field enables phone number input.</p>
+                <p class="component-description"><img src="img/phone.png" alt="ui:inputPhone default"/></p>
+                <pre class="prettyprint">&lt;ui:inputPhone label="Phone" 
+       labelPosition="hidden"
+       value="(415)123-4567"/&gt;</pre>
+                 </article>
+                 
+                 <!----- Radio Buttons ----->
+                    <article>
+                    	<h2><a name="radio">Radio Buttons</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputRadio&amp;defType&#61;component" target="_blank">ui:inputRadio</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputRadio&amp;defType&#61;component" target="_blank">ui:outputRadio</a></code></p>
+        		<p class="component-description">A radio button can be grouped together for single selection.</p>
+                <p class="component-description"><img src="img/radio.png" alt="ui:inputRadio default"/></p>
+                <pre class="prettyprint">&lt;ui:inputRadio name="others" label="Prospecting" change="{!c.onGroup}"/>
+&lt;ui:inputRadio name="others" label="Qualification" change="{!c.onGroup}" value="true"/>
+&lt;ui:inputRadio name="others" label="Needs Analysis" change="{!c.onGroup}"/>
+&lt;ui:inputRadio name="others" label="Closed Lost" change="{!c.onGroup}"/>
+&lt;p>Selected Items:&lt;/p>
+&lt;p>&lt;ui:outputText class="result" aura:id="radioGroupResult" value="" />&lt;/p></pre>
+   <pre class="prettyprint">onGroup: function(cmp, evt) {
+     var elem = evt.getSource().getElement();
+     var selected = elem.textContent;
+     resultCmp = cmp.find("radioGroupResult");
+     resultCmp.set("v.value", selected);
+}</pre>
+                 </article>
+                 
+                 <!----- Range ----->
+                    <article>
+                    	<h2><a name="range">Range</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputRange&amp;defType&#61;component" target="_blank">ui:inputRange</a></code></p>
+        		<p class="component-description">The range slider enables numerical input, providing any minimum or maximum number restrictions.</p>
+                <p class="component-description"><img src="img/range.png" alt="ui:inputRange default"/></p>
+                <pre class="prettyprint">&lt;ui:inputRange label="range"
+      min="1" max="5" 
+      value="4" change="{!c.update}"/></pre>
+                 </article>
+                 
+                 <!----- Search ----->
+                    <article>
+                    	<h2><a name="search">Search</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputSearch&amp;defType&#61;component" target="_blank">ui:inputSearch</a></code></p>
+        		<p class="component-description">The search field enables efficient event handling when you run a search or a keyboard or mouse event is fired.</p>
+                <p class="component-description"><img src="img/search.png" alt="ui:inputSearch default"/></p>
+                <pre class="prettyprint">&lt;ui:inputSearch label="search" 
+      labelPosition="hidden" 
+      search="{!c.onSearch}"/></pre>
+                 </article>
+                 
+                 <!----- Text ----->
+                    <article>
+                    	<h2><a name="text">Text</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputText&amp;defType&#61;component" target="_blank">ui:inputText</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputText&amp;defType&#61;component" target="_blank">ui:outputText</a></code></p>
+        		<p class="component-description">The text field enables text input.</p>
+                <p class="component-description"><img src="img/text.png" alt="ui:inputText default"/></p>
+                <pre class="prettyprint">&lt;ui:inputText label="Text" 
+      labelPosition="hidden" 
+      placeholder="abc 123"/&gt;</pre>
+                 </article>
+                 
+                 <!----- Rich Text ----->
+                    <article>
+                    	<h2><a name="richtext">Rich Text</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputRichText&amp;defType&#61;component" target="_blank">ui:inputRichText</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputRichText&amp;defType&#61;component" target="_blank">ui:outputRichText</a></code></p>
+        		<p class="component-description">The rich text field provides a WYSIWYG input.</p>
+                <p class="component-description"><img src="img/richtext.png" alt="ui:inputRichText default"/></p>
+                <pre class="prettyprint">&lt;ui:inputRichText label="RichText" 
+      labelPosition="hidden" /&gt;</pre>
+                 </article>
+                 
+                 <!----- Text Area ----->
+                    <article>
+                    	<h2><a name="textarea">Text Area</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputTextArea&amp;defType&#61;component" target="_blank">ui:inputTextArea</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputTextArea&amp;defType&#61;component" target="_blank">ui:outputTextArea</a></code></p>
+        		<p class="component-description">A text area provides multi-line text input.</p>
+                <p class="component-description"><img src="img/textarea.png" alt="ui:inputTextArea default"/></p>
+                <pre class="prettyprint">&lt;ui:inputTextArea label="Text Area" 
+      labelPosition="hidden" 
+      cols="20" rows="5" placeholder="Text area"/&gt;</pre>
+                 </article>
+                 
+                 <!----- URL ----->
+                    <article>
+                    	<h2><a name="url">URL</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputURL&amp;defType&#61;component" target="_blank">ui:inputURL</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:outputURL&amp;defType&#61;component" target="_blank">ui:outputURL</a></code></p>
+        		<p class="component-description">The URL field enables URL input.</p>
+                <p class="component-description"><img src="img/url.png" alt="ui:inputURL default"/></p>
+                <pre class="prettyprint">&lt;ui:inputURL label="Venue URL" 
+     labelPosition="hidden"            
+     value="www.google.com"/&gt;</pre>
+                 </article>
+                 
+                 <!----- Field-level Errors ----->
+                    <article>
+                    	<h2><a name="errors">Field-level Errors</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputDefaultError&amp;defType&#61;component" target="_blank">ui:inputDefaultError</a></code></p>
+        		<p class="component-description">Field-level errors are typically used with input validation.
+        		In this example, validation is handled by the <code>press</code> event on the <code>ui:button</code> component.
+                Error messages are implemented as <code>ui:inputDefaultError</code> by default.</p>
+                <p class="component-description"><img src="img/error.png" alt="ui:inputDefaultError default"/></p>
+                <pre class="prettyprint">&lt;ui:inputText aura:id="color" 
+          label="Text field" labelPosition="hidden" 
+          placeholder="Blue" /&gt;
+&lt;ui:button label="Validate" press="{!c.checkInput}"/&gt;  
+&lt;ui:outputText aura:id="outColor" value="" class="text"/&gt;</pre>
+                 </article>
+                 
+                 <!----- Carousels ----->
+                    <article>
+                    	<h2><a name="carousels">Carousels</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:carousel&amp;defType&#61;component" target="_blank">ui:carousel</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:carouselPage&amp;defType&#61;component" target="_blank">ui:carouselPage</a></code></p>
+        		<p class="component-description">Carousels display a list of pages for users to swipe through horizontally.</p>
+                <p class="component-description"><img src="img/carousel.png" alt="ui:carousel default"/> <img src="img/carousel2.png" alt="ui:carousel default"/></p>
+                <pre class="prettyprint">&lt;ui:carousel width="300" height="450" 
+          title="Carousel Demo" defaultPage="2"&gt;
+    &lt;aura:set attribute="pageComponents"&gt;
+        &lt;ui:carouselPage title="Page 1"&gt;
+            &lt;ui:scroller&gt;
+                &lt;ui:outputText value="page 1"/&gt;
+                    &lt;div&gt;Lorem ipsum dolor sit amet, 
+                    consectetur adipiscing elit. 
+                    Suspendisse eu diam tortor,
+                    sodales venenatis est ...
+                &lt;/div&gt;
+            &lt;/ui:scroller&gt;
+ 		&lt;/ui:carouselPage&gt;
+ 		&lt;ui:carouselPage title="Page 2"&gt;
+ 			&lt;ui:outputText value="page 2"/&gt;
+ 		&lt;/ui:carouselPage&gt;
+ 		&lt;ui:carouselPage title="Page 3"&gt;
+ 			&lt;ui:outputText value="page 3"/&gt;
+ 		&lt;/ui:carouselPage&gt;
+	&lt;/aura:set&gt;
+&lt;/ui:carousel&gt;</pre>
+                 </article>
+                 
+                 <!----- Dialog ----->
+                    <article>
+                    	<h2><a name="dialogs">Dialogs</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:panelDialog&amp;defType&#61;component" target="_blank">ui:panelDialog</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:panelManager&amp;defType&#61;component" target="_blank">ui:panelManager</a></code></p>
+        		<p class="component-description">A modal dialog disables the background until the user interacts with it. A non-modal dialog is closed when the user clicks anywhere outside of it. Embed an instance of <code>ui:dialogManager</code> within your component to manage your <code>ui:panelDialog</code> instances.
+                Fire the <code>force:showPanel</code> and <code>force:hidePanel</code> events with the dialog you want to open and any other appropriate attributes. Firing <code>force:showPanel</code> creates an instance of <code>ui:panelDialog</code>.</p>
+                <p class="component-description"><img src="img/panelDialog.png" alt="ui:panelDialog modal default"/> <img src="img/panelDialog2.png" alt="ui:panelDialog non-modal default"/></p>
+                <pre class="prettyprint">&lt;ui:panelManager /></pre>
+                <pre class="prettyprint">showModal: function(cmp, event, helper) {
+    var cmps = $A.componentService
+              .newComponentAsync(
+                  this, function(){}, helper.getConfig(cmp)
+               );
+    var overlay = cmps[3];
+    overlay.addHandler('press', cmp, 'c.showModal')
+    var openPanelEvent = $A.get('e.ui:openPanel').setParams({
+          show: true,
+            isModal: true,
+            isDialog: true,
+          title: 'my panel',
+          'class': 'myClass',
+          body: cmps
+        });
+        openPanelEvent.fire();
+  }</pre>
+                
+                 </article>
+                 
+                  <!----- Dropdown Lists ----->
+                    <article>
+                    	<h2><a name="dropdown">Dropdown Lists</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputSelect&amp;defType&#61;component" target="_blank">ui:inputSelect</a></code> <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:inputSelectOption&amp;defType&#61;component" target="_blank">ui:inputSelectOption</a></code></p>
+        		<p class="component-description">A drop-down list displays static or dynamic options.</p>
+                <p class="component-description"><img src="img/select.png" alt="ui:inputSelect default"/></p>
+                <pre class="prettyprint">&lt;ui:inputSelect class="single" change="{!c.doSomething}">
+    &lt;ui:inputSelectOption text="Any"/>
+    &lt;ui:inputSelectOption text="Open" value="true"/>
+    &lt;ui:inputSelectOption text="Closed"/>
+    &lt;ui:inputSelectOption text="Closed Won"/>
+    &lt;ui:inputSelectOption text="Closed Lost"/>
+&lt;/ui:inputSelect></pre>
+                 </article>
+                 
+                 <!----- Images ----->
+                    <article>
+                    	<h2><a name="images">Images</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:image&amp;defType&#61;component" target="_blank">ui:image</a></code></p>
+        		<p class="component-description">Images can be either informational or decorative. An informational image (default) should be accompanied by the <code>alt</code> tag to provide textual context.</p>
+                <p class="component-description"><img src="img/image.png" alt="ui:image default"/></p>
+                <pre class="prettyprint">&lt;ui:image src="../img/search.png" alt="search"/&gt;
+&lt;ui:image src="../img/search.png" imageType="decorative"/&gt;</pre>
+                 </article>
+                 
+                  <h2><a name="layouts">Layouts</a></h2>
+                    <p>Using layouts is a quick way to position your components in a horizontal or vertical grid.</p>
+                    
+                  <!----- Horizontal Layout ----->
+                    <article>
+                    	<h2><a name="block">Horizontal</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:block&amp;defType&#61;component" target="_blank">ui:block</a></code></p>
+        		<p class="component-description"><code>ui:block</code> provides a horizontal layout for your components. It's rendered in <code>div</code> tags in the order: <code>bLeft</code>, <code>bRight</code>, and <code>bBody</code>. Visually, the body appears between the left and right facets.</p>
+                <p class="component-description"><img src="img/block.png" alt="ui:block default"/></p>
+                <pre class="prettyprint">&lt;ui:block&gt;
+    &lt;aura:set attribute="left"&gt;
+        &lt;ui:image src="/../img/search.png" alt="bLeft" /&gt;
+    &lt;/aura:set&gt;
+    &lt;aura:set attribute="right"&gt;
+        &lt;ui:button label="Submit"/&gt;
+    &lt;/aura:set&gt;
+    &lt;ui:inputText label="Text" labelPosition="hidden" /&gt; 
+&lt;/ui:block&gt;</pre>
+                 </article>
+                 
+                 <!----- Vertical Layout ----->
+                    <article>
+                    	<h2><a name="vbox">Vertical</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:vbox&amp;defType&#61;component" target="_blank">ui:vbox</a></code></p>
+        		<p class="component-description"><code>ui:vbox</code>  creates a vertical box area on a page with simple wrapper HTML. Insert content into the top and bottom area by adding it to the <code>north</code> and <code>south</code> facets respectively. The body is inserted in the middle of top and bottom area. </p>
+                <p class="component-description"><img src="img/vbox.png" alt="ui:vbox default"/></p>
+                <pre class="prettyprint">&lt;ui:vbox&gt;
+    &lt;aura:set attribute="north"&gt;
+        This &lt;code&gt;north&lt;/code&gt; facet is rendered in a div element.
+    &lt;/aura:set&gt;
+    &lt;aura:set attribute="south"&gt;
+        This &lt;code&gt;south&lt;/code&gt; facet is rendered in a div element.
+    &lt;/aura:set&gt;
+    &lt;p&gt;The body is nested in the middle of the north and south facets.&lt;/p&gt;
+&lt;/ui:vbox&gt;</pre>
+                 </article>
+                 
+                  <!----- Lists ----->
+                    <article>
+                    	<h2><a name="lists">Lists</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;aura:iteration&amp;defType&#61;component" target="_blank">aura:iteration</a></code></p>
+        		<p class="component-description"><code>aura:iteration</code> iterates over a collection of items and renders the body of the tag for each item. Data changes in the collection are rerendered automatically on the page. It also supports iterations containing components that are created exlusively on the client-side or components that have server-side dependencies.</p>
+                <p class="component-description"><img src="img/iteration.png" alt="aura:iteration"/></p>
+                <pre class="prettyprint">&lt;aura:iteration items="1,2,3,4,5" var="item"&gt;
+    &lt;meter value="{!item / 5}"/>
+&lt;/aura:iteration></pre>
+                 </article>
+                 
+                 <!----- Menus ----->
+                    <article>
+                    	<h2><a name="menus">Menus</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:menu&amp;defType&#61;component" target="_blank">ui:menu</a></code>
+                        <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:menuList&amp;defType&#61;component" target="_blank">ui:menuList</a></code>
+                        <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:actionMenuItem&amp;defType&#61;component" target="_blank">ui:actionMenuItem</a></code>
+                        <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:checkboxMenuItem&amp;defType&#61;component" target="_blank">ui:checkboxMenuItem</a></code>
+                        <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:radioMenuItem&amp;defType&#61;component" target="_blank">ui:radioMenuItem</a></code>
+                        <code class="ref"><a href="reference.app#reference?descriptor&#61;ui:menuItemSeparator&amp;defType&#61;component" target="_blank">ui:menuItemSeparator</a></code></p>
+        		<p class="component-description">A dropdown menu contains a trigger and list items. The list items can be wired up to a client-side controller to trigger a desired action. <code>ui:menu</code> extends <a href="#popup"><code>ui:popup</code></a>. </p>
+                <p class="component-description"><img src="img/menu.png" alt="ui:menu default"/></p>
+                <pre class="prettyprint">
+&lt;ui:menu&gt;
+    &lt;ui:menuTriggerLink aura:id="mytrigger" label="Select status"/&gt;
+    &lt;ui:menuList&gt;
+        &lt;ui:actionMenuItem label="Any" click="{!c.doSomething}"/&gt;
+        &lt;ui:actionMenuItem label="Open" click="{!c.doSomething}"/&gt;
+        &lt;ui:actionMenuItem label="Closed" click="{!c.doSomething}"/&gt;
+        &lt;ui:actionMenuItem label="Closed Won" click="{!c.doSomething}"/&gt;
+        &lt;ui:menuItemSeparator/&gt;
+        &lt;ui:checkboxMenuItem label="Red"/&gt;
+        &lt;ui:checkboxMenuItem label="Blue"/&gt;
+        &lt;ui:checkboxMenuItem label="Green"/&gt;
+        &lt;ui:checkboxMenuItem label="Yellow"/&gt;
+        &lt;ui:menuItemSeparator/&gt;
+        &lt;ui:radioMenuItem label="San Francisco"/&gt;
+        &lt;ui:radioMenuItem label="New York"/&gt;
+        &lt;ui:radioMenuItem label="Los Angeles"/&gt;
+        &lt;ui:radioMenuItem label="San Diego"/&gt;
+        &lt;ui:radioMenuItem label="Seattle"/&gt;
+    &lt;/ui:menuList&gt;
+&lt;/ui:menu&gt;</pre>
+                 </article>
+                 
+                 <!----- Popup ----->
+                    <article>
+                    	<h2><a name="popup">Popups</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:popup&amp;defType&#61;component" target="_blank">ui:popup</a></code></p>
+        		<p class="component-description">A popup has a trigger that controls its visibility. Setting <code>curtain="true"</code> creates an overlay under the popup. Setting <code>attachToBody="true"</code> attaches the popup to the HTML body tag level.</p>
+                <p class="component-description"><img src="img/popup.png" alt="ui:popup default"/></p>
+                <pre class="prettyprint">&lt;ui:popup label="trigger">
+    &lt;ui:popupTrigger>Click this trigger to open popup&lt;/ui:popupTrigger>
+    &lt;ui:popupTarget>
+        This displays in a popup.
+    &lt;/ui:popupTarget>
+&lt;/ui:popup></pre>
+              	
+                 </article>
+                 
+                 <!----- Spinners ----->
+                    <article>
+                    	<h2><a name="spinners">Spinners</a></h2>
+                        <p><code class="ref"><a href="reference.app#reference?descriptor&#61;ui:spinner&amp;defType&#61;component" target="_blank">ui:spinner</a></code></p>
+        		<p class="component-description">A spinner indicates that content is being loaded. It can be displayed or hidden accordingly.</p>
+                <p class="component-description"><img src="img/spinner.gif" alt="ui:spinner"/></p>
+                <pre class="prettyprint"> &lt;ui:spinner aura:id="spinner"/&gt;</pre>
+              	<pre class="prettyprint">({
+    toggleSpinner: function(cmp, event) {
+        var spinner = cmp.find('spinner');
+        var evt = spinner.get("e.toggle");
+        
+    if(!$A.util.hasClass(spinner.getElement(), 'hideEl')){
+        evt.setParams({ isVisible : false });
+     }    
+    else {
+        evt.setParams({ isVisible : true });
+  }
+    evt.fire();
+    }
+})</pre>
+                 </article>
+                    
         	</section>
         	</div>
-            <div class="col-md-3">
+       		
+            <div id="sticky-anchor"></div>
+            <div id="sticky" class="col-md-3">
             	<ul class="list-unstyled nav nav-sidebar">
   				<li>Components
 	  				<ul class="list-unstyled nav nav-sidebar">
 		  				<li><a href="#alerts" alt="alerts">Alerts</a></li>
 		  				<li><a href="#buttons" alt="buttons">Buttons</a></li>
 		  				<!-- TODO: make Fields toggle to show/hide child list -->
-		  					<li><a href="#fields">Fields</a>
+		  					<li><a href="#input">Input</a>
 		  						<ul class="list-unstyled nav nav-sidebar">
 		  							<li><a href="#auto" alt="auto">Autocomplete</a></li>
 		  							<li><a href="#checkbox" alt="checkbox">Checkboxes</a></li>
 		  							<li><a href="#datetime" alt="datetime">Date and Time</a></li>
-		  							<li><a href="#datepicker" alt="date picker">Date Picker</a></li>
 		  							<li><a href="#email" alt="email">Email</a></li>
 		  							<li><a href="#number" alt="number">Number</a></li>
 		  							<li><a href="#secret" alt="secret">Password</a></li>
 		  							<li><a href="#percent" alt="percent">Percent</a></li>
 		  							<li><a href="#phone" alt="phone">Phone</a></li>
+                                    <li><a href="#radio" alt="radio">Radio Buttons</a></li>
 		  							<li><a href="#range" alt="range">Range</a></li>
 			  						<li><a href="#search" alt="search">Search</a></li>
-		  							<li><a href="#text" alt="text">Text and Rich Text</a></li>
-		  							<li><a href="#textarea" alt="text">Text Area</a></li>
+		  							<li><a href="#text" alt="text">Text</a></li>
+                                    <li><a href="#richtext" alt="richtext">Rich Text</a></li>
+		  							<li><a href="#textarea" alt="textarea">Text Area</a></li>
 		  							<li><a href="#url" alt="url">URL</a></li>
 		  						</ul>
 		  						</li>
 		  					<li><a href="#errors" alt="errors">Field-Level Errors</a></li>
-		  					<li><a href="#forms" alt="forms">Forms</a></li>
 		  					<li><a href="#carousels" alt="carousels">Carousels</a></li>
-		  					<li><a href="#data" alt="data">Data Providers</a></li>
 			  				<li><a href="#dialogs" alt="dialogs">Dialogs</a></li>
-			  				<li><a href="#dropdown" alt="dropdown">Dropdowns</a></li>
+			  				<li><a href="#dropdown" alt="dropdown">Dropdown Lists</a></li>
 			  				<li><a href="#images" alt="images">Images</a></li>
 			  				<li><a href="#layouts">Layouts</a>
 		  						<ul class="list-unstyled nav nav-sidebar">
@@ -119,7 +531,7 @@
 		  						</li>
 			  				<li><a href="#lists" alt="lists">Lists</a></li>
 			  				<li><a href="#menus" alt="menus">Menus</a></li>
-			  				<li><a href="#scrollers" alt="scrollers">Scrollers</a></li>
+                            <li><a href="#popup" alt="menus">Popup</a></li>
 			  				<li><a href="#spinners" alt="spinners">Spinners</a></li>
 			  				<li><a href="#tables" alt="tables">Tables</a></li>
 			  				<li><a href="#tabset" alt="tabset">Tabset</a></li>
@@ -128,9 +540,63 @@
                </ul>
             </div>
           
-       		
         </div>
 	</div>
-    
+    <script>
+	
+	 /* Create array for href values */
+    var aNodes = $(".nav li ul li").children(); 
+    arr = [];
+    for (var i=0; i < aNodes.length; i++) {    
+        var a = aNodes[i];
+        var ahref = $(a).attr('href');
+        arr.push(ahref);
+		arr = arr.filter(function(item){
+    		return item !== undefined;
+		});
+    } 
+	
+	function sticky_relocate() {
+		var window_top = $(window).scrollTop();
+		var div_top = $('#sticky-anchor').offset().top;
+		if (window_top > div_top) {
+			$('#sticky').addClass('stick');
+		} else {
+			$('#sticky').removeClass('stick');
+		}
+	}
+
+	$(function () {
+		$(window).scroll(sticky_relocate);
+		sticky_relocate();
+	});
+	
+	/** Highlight 
+	$(window).scroll(function(){
+        var windowPos = $(window).scrollTop(); // get the offset of the window from the top of page
+        var windowHeight = $(window).height(); // get the height of the window
+        var docHeight = $(document).height();
+
+        for (var i=0; i < arr.length; i++) {
+            var theID = arr[i];
+			console.log(theID);
+            var divPos = $(theID).offset().top; // get the offset of the div from the top of page
+            var divHeight = $(theID).height(); // get the height of the div in question
+            if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+                $("a[href='" + theID + "']").addClass("nav-active");
+            } else {
+                $("a[href='" + theID + "']").removeClass("nav-active");
+            }
+        }
+
+        if(windowPos + windowHeight == docHeight) {
+            if (!$("nav li:last-child a").hasClass("nav-active")) {
+                var navActiveCurrent = $(".nav-active").attr("href");
+                $("a[href='" + navActiveCurrent + "']").removeClass("nav-active");
+                $("nav li:last-child a").addClass("nav-active");
+            }
+        }
+    });**/
+</script>
 </body>
 </html>
